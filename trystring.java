@@ -1,6 +1,7 @@
 public class trystring {
     public static void main(String[] args) {
         ElevOpening();
+        ElevClosing();
         
         System.out.print("COME IN YO!");
     }
@@ -8,14 +9,26 @@ public class trystring {
     public static void ElevOpening() {
 
         DesignElevClosed();
-        Delay(2000);
+        Delay(1000);
         DeleteLine(5);
 
         DesignElevHalfOpen();
-        Delay(2000);
-
+        Delay(1000);
         DeleteLine(5);
+
         DesignElevFullOpen();
+    }
+    public static void ElevClosing() {
+        
+        DesignElevFullOpen();
+        Delay(1000);
+        DeleteLine(5);
+
+        DesignElevHalfOpen();
+        Delay(1000);
+        DeleteLine(5);
+
+        DesignElevClosed();
     }
 
     public static void DesignElevClosed() {
