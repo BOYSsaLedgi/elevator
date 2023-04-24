@@ -1,6 +1,6 @@
 import java.util.Scanner;
-import java.lang.*;
-import java.util.Date; 
+//import java.lang.*;
+//import java.util.Date; 
 //import java.util.Random;
 
 public class periodical {
@@ -20,15 +20,16 @@ public class periodical {
         //RANDOMIZER//
         int min = 1; // Minimum value of range
         int max = 7; // Maximum value of range
-        int elevator1 = (int)Math.floor(Math.random() * (max - min + 1) + min);
-        int elevator2 = (int)Math.floor(Math.random() * (max - min + 1) + min);
+        int elevator1 = (int)Math.floor(Math.random() * (max - min + 1) + min);//variable for  elevator1 location
+        int elevator2 = (int)Math.floor(Math.random() * (max - min + 1) + min);//variable for elevator 2 location
+        //int elevator1 = 2;
+        //int elevator2 = 3;
         System.out.println(elevator1);
         System.out.println(elevator2);
 
         int ElevatorLocation; //to get which elevator is nearest to you
-        int character = 1; //variable for character location
-        //int elevator1 = 5; //variable for  elevator1 location
-        //int elevator2 = 7; //variable for elevator 2 location
+        int character = 7; //variable for character location
+        
 
         ElevatorLocation = ElevatorCheck(character, elevator1, elevator2);
         ElevatorStatus(ElevatorLocation, character, elevator1, elevator2);
@@ -52,8 +53,8 @@ public class periodical {
         
 
         //elevator delay
-        int AbsFloorDiff = ReturnAbsDifference(character, elevator1, elevator2);
-        Delay(2000, AbsFloorDiff, NearestElevator); //It takes 2 seconds to travel in each floor.
+        //int AbsFloorDiff = ReturnAbsDifference(character, elevator1, elevator2);
+        Delay(2000, NearestElevator, character); //It takes 2 seconds to travel in each floor.
 
 
         //pass the character level to the elevator going up
@@ -103,28 +104,39 @@ public class periodical {
         
     }
     // DELAY FUNCTION FOR ELEVATOR MOVING
-    public static void Delay(int x, int floordiff, int floorlvl) //waiting for few seconds
+    public static void Delay(int x, int elevfloorlvl, int charfloorlvl) //waiting for few seconds
     {
-        
-        for (int y = 1; y<=floordiff; y++)
+        if (elevfloorlvl>charfloorlvl) 
         {
-            System.out.print("HITLER");
-            try
+            for (int y = elevfloorlvl; y>=charfloorlvl; y--)
             {
-                Thread.sleep(x);
+                System.out.print("| " + y + " |");
+                try
+                {
+                    Thread.sleep(x);
+                }
+                catch (InterruptedException ex)
+                {
+                  ex.printStackTrace();
+                }
             }
-            catch (InterruptedException ex)
+        }
+        else if (elevfloorlvl<charfloorlvl)
+        {
+            for (int y = elevfloorlvl; y<=charfloorlvl; y++)
             {
-                ex.printStackTrace();
+                System.out.print("| " + y + " |");
+                try
+                {
+                    Thread.sleep(x);
+                }
+                catch (InterruptedException ex)
+                {
+                  ex.printStackTrace();
+                }
             }
         }
         System.out.println();
-        /*
-         * IF FLOORLVL > CHARACTER
-         *  FOR LOOP FLOOR LVL --
-         * ELSE IF FLOORLVL < CHARACTER
-         *  FOR LOOP FLOOR LVL ++
-         */
     }
     public static int ElevatorCheck(int charlvl, int elev1, int elev2) //to check which elevator is nearest to you
     {
