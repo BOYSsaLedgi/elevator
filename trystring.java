@@ -1,16 +1,22 @@
 public class trystring {
     public static void main(String[] args) {
-        DesignElevClosed();
-        Delay(2000);
-        DeleteLine(5);
-        DesignElevHalfOpen();
-        Delay(2000);
-        DeleteLine(5);
-        DesignElevFullOpen();
+        ElevOpening();
         
         System.out.print("COME IN YO!");
     }
 
+    public static void ElevOpening() {
+
+        DesignElevClosed();
+        Delay(2000);
+        DeleteLine(5);
+
+        DesignElevHalfOpen();
+        Delay(2000);
+
+        DeleteLine(5);
+        DesignElevFullOpen();
+    }
 
     public static void DesignElevClosed() {
         System.out.println("______________");
