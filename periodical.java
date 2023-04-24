@@ -22,21 +22,39 @@ public class periodical {
         int max = 7; // Maximum value of range
         int elevator1 = (int)Math.floor(Math.random() * (max - min + 1) + min);
         int elevator2 = (int)Math.floor(Math.random() * (max - min + 1) + min);
-        System.out.println(random_int1);
-        System.out.println(random_int2);
+        System.out.println(elevator1);
+        System.out.println(elevator2);
 
         int ElevatorLocation; //to get which elevator is nearest to you
         int character = 1; //variable for character location
         //int elevator1 = 5; //variable for  elevator1 location
         //int elevator2 = 7; //variable for elevator 2 location
 
-        
         ElevatorLocation = ElevatorCheck(character, elevator1, elevator2);
         ElevatorStatus(ElevatorLocation, character, elevator1, elevator2);
 
+        //GETTING THE FLOOR NUMBER OF NEAREST ELEVATOR//
+        int NearestElevator = 0;
+        if (ElevatorLocation == 1)
+        {
+            NearestElevator = elevator2;
+        }
+        else if (ElevatorLocation == 2)
+        {
+            NearestElevator = elevator1;
+        }
+        else if ( ElevatorLocation == 3)
+        {
+            NearestElevator = elevator2;
+        }
+
+        
+        
+
         //elevator delay
         int AbsFloorDiff = ReturnAbsDifference(character, elevator1, elevator2);
-        Delay(2000 * AbsFloorDiff); //It takes 2 seconds to travel in each floor.
+        Delay(2000, AbsFloorDiff, NearestElevator); //It takes 2 seconds to travel in each floor.
+
 
         //pass the character level to the elevator going up
         if (ElevatorLocation==1)
@@ -71,18 +89,42 @@ public class periodical {
         //door closed
         System.out.println("Door closed");
     }
-
+    // DELAY FUNCTION FOR 1 SECOND
     public static void Delay(int x) //waiting for few seconds
     {
-        //System.out.println("Delaying");
-        try
+            try
+            {
+                Thread.sleep(x);
+            }
+            catch (InterruptedException ex)
+            {
+                ex.printStackTrace();
+            }
+        
+    }
+    // DELAY FUNCTION FOR ELEVATOR MOVING
+    public static void Delay(int x, int floordiff, int floorlvl) //waiting for few seconds
+    {
+        
+        for (int y = 1; y<=floordiff; y++)
         {
-            Thread.sleep(x);
+            System.out.print("HITLER");
+            try
+            {
+                Thread.sleep(x);
+            }
+            catch (InterruptedException ex)
+            {
+                ex.printStackTrace();
+            }
         }
-        catch (InterruptedException ex)
-        {
-            ex.printStackTrace();
-        }
+        System.out.println();
+        /*
+         * IF FLOORLVL > CHARACTER
+         *  FOR LOOP FLOOR LVL --
+         * ELSE IF FLOORLVL < CHARACTER
+         *  FOR LOOP FLOOR LVL ++
+         */
     }
     public static int ElevatorCheck(int charlvl, int elev1, int elev2) //to check which elevator is nearest to you
     {
