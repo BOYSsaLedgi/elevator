@@ -1,6 +1,7 @@
 import java.util.Scanner;
 import java.lang.*;
 import java.util.Date; 
+//import java.util.Random;
 
 public class periodical {
     //input
@@ -16,11 +17,20 @@ public class periodical {
     public static void main(String[] args) {
         Scanner scan = new Scanner (System.in);
 
+        //RANDOMIZER//
+        int min = 1; // Minimum value of range
+        int max = 7; // Maximum value of range
+        int elevator1 = (int)Math.floor(Math.random() * (max - min + 1) + min);
+        int elevator2 = (int)Math.floor(Math.random() * (max - min + 1) + min);
+        System.out.println(random_int1);
+        System.out.println(random_int2);
+
         int ElevatorLocation; //to get which elevator is nearest to you
         int character = 1; //variable for character location
-        int elevator1 = 5; //variable for  elevator1 location
-        int elevator2 = 7; //variable for elevator 2 location
+        //int elevator1 = 5; //variable for  elevator1 location
+        //int elevator2 = 7; //variable for elevator 2 location
 
+        
         ElevatorLocation = ElevatorCheck(character, elevator1, elevator2);
         ElevatorStatus(ElevatorLocation, character, elevator1, elevator2);
 
