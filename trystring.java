@@ -1,6 +1,7 @@
 public class trystring {
     public static void main(String[] args) {
         ElevOpening();
+        DeleteLine(5);
         ElevClosing();
         
         System.out.print("COME IN YO!");
