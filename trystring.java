@@ -1,12 +1,28 @@
 public class trystring {
     public static void main(String[] args) {
+        topdesign(6, 7);
         ElevOpening();
         DeleteLine(5);
         ElevClosing();
+        topdesign(6, 7);
+        ElevIdle();
         
         System.out.print("COME IN YO!");
     }
-
+    public static void topdesign(int x, int y)
+    {
+        System.out.println("_______________________________________");
+        System.out.println("|      "+x+"                     "+y+"        |");
+        System.out.println("|_____________________________________|");    
+    }
+    public static void ElevIdle()
+    {
+        System.out.println("|  ______________   "+5+"  ______________ |");
+        System.out.println("|  |     |      |   "+5+"  |     |      | |");
+        System.out.println("|  |     |      |   "+5+"  |     |      | |");
+        System.out.println("|  |     |      |   "+5+"  |     |      | |");
+        System.out.println("|__|_____|______|______|_____|______|_|");
+    }
     public static void ElevOpening() {
 
         DesignElevClosed();

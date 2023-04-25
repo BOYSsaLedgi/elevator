@@ -1,7 +1,5 @@
 import java.util.Scanner;
-//import java.lang.*;
-//import java.util.Date; 
-//import java.util.Random;
+
 
 public class periodical {
     //input
@@ -24,8 +22,7 @@ public class periodical {
         int elevator2 = (int)Math.floor(Math.random() * (max - min + 1) + min);//variable for elevator 2 location
         //int elevator1 = 2;
         //int elevator2 = 3;
-        System.out.println(elevator1);
-        System.out.println(elevator2);
+        topdesign(elevator1, elevator2);
 
         int ElevatorLocation; //to get which elevator is nearest to you
         int character = 7; //variable for character location
@@ -89,6 +86,68 @@ public class periodical {
 
         //door closed
         System.out.println("Door closed");
+    }
+    public static void topdesign(int x, int y)
+    {
+        System.out.println("_______________________________________");
+        System.out.println("|      "+x+"                     "+y+"        |");
+        System.out.println("|_____________________________________|");    
+    }
+    public static void ElevOpening() {
+
+        DesignElevClosed();
+        Delay(1000);
+        DeleteLine(5);
+
+        DesignElevHalfOpen();
+        Delay(1000);
+        DeleteLine(5);
+
+        DesignElevFullOpen();
+    }
+    public static void ElevClosing() {
+        
+        DesignElevFullOpen();
+        Delay(1000);
+        DeleteLine(5);
+
+        DesignElevHalfOpen();
+        Delay(1000);
+        DeleteLine(5);
+
+        DesignElevClosed();
+    }
+
+    public static void DesignElevClosed() {
+        System.out.println("______________");
+        System.out.println("|     |      |");
+        System.out.println("|     |      |");
+        System.out.println("|     |      |");
+        System.out.println("|_____|______|");
+    }
+    public static void DesignElevHalfOpen() {
+        System.out.println("______________");
+        System.out.println("|    | |     |");
+        System.out.println("|    | |     |");
+        System.out.println("|    | |     |");
+        System.out.println("|____|_|_____|");
+    }
+    public static void DesignElevFullOpen() {
+        System.out.println("______________");
+        System.out.println("| |        | |");
+        System.out.println("| |        | |");
+        System.out.println("| |        | |");
+        System.out.println("|_|________|_|");
+    }
+
+    public static void DeleteLine(int x) 
+    {
+        //int x is for the number of lines to delete
+        for (int y = 1 ; y<=x; y++)
+        {
+            System.out.print(String.format("\033[%dA",1)); // Move up
+            System.out.print("\033[2K"); // Erase line content
+        }    
     }
     // DELAY FUNCTION FOR 1 SECOND
     public static void Delay(int x) //waiting for few seconds
