@@ -93,51 +93,99 @@ public class periodical {
         System.out.println("|      "+x+"                     "+y+"        |");
         System.out.println("|_____________________________________|");    
     }
-    public static void ElevOpening() {
+    public static void ElevIdle()
+    {
+        System.out.println("|  ______________   "+5+"  ______________ |");
+        System.out.println("|  |     |      |   "+5+"  |     |      | |");
+        System.out.println("|  |     |      |   "+5+"  |     |      | |");
+        System.out.println("|  |     |      |   "+5+"  |     |      | |");
+        System.out.println("|__|_____|______|______|_____|______|_|");
+    }
 
-        DesignElevClosed();
+    public static void RightElevHalfOpen()
+    {
+        System.out.println("|  ______________   "+5+"  ______________ |");
+        System.out.println("|  |     |      |   "+5+"  |    | |     | |");
+        System.out.println("|  |     |      |   "+5+"  |    | |     | |");
+        System.out.println("|  |     |      |   "+5+"  |    | |     | |");
+        System.out.println("|__|_____|______|______|____|_|_____|_|");
+    }
+
+    public static void RightElevFullOpen()
+    {
+        System.out.println("|  ______________   "+5+"  ______________ |");
+        System.out.println("|  |     |      |   "+5+"  | |        | | |");
+        System.out.println("|  |     |      |   "+5+"  | |        | | |");
+        System.out.println("|  |     |      |   "+5+"  | |        | | |");
+        System.out.println("|__|_____|______|______|_|________|_|_|");
+    }
+
+    public static void RightElevOpening()
+    {
+        ElevIdle();
         Delay(1000);
         DeleteLine(5);
 
-        DesignElevHalfOpen();
+        RightElevHalfOpen();
         Delay(1000);
         DeleteLine(5);
 
-        DesignElevFullOpen();
+        RightElevFullOpen();
     }
-    public static void ElevClosing() {
-        
-        DesignElevFullOpen();
+    public static void RightElevClosing()
+    {
+        RightElevFullOpen();
         Delay(1000);
         DeleteLine(5);
 
-        DesignElevHalfOpen();
+        RightElevHalfOpen();
         Delay(1000);
         DeleteLine(5);
 
-        DesignElevClosed();
+        ElevIdle();
     }
 
-    public static void DesignElevClosed() {
-        System.out.println("______________");
-        System.out.println("|     |      |");
-        System.out.println("|     |      |");
-        System.out.println("|     |      |");
-        System.out.println("|_____|______|");
+    public static void LeftElevHalfOpen()
+    {
+        System.out.println("|  ______________   "+5+"  ______________ |");
+        System.out.println("|  |    | |     |   "+5+"  |     |      | |");
+        System.out.println("|  |    | |     |   "+5+"  |     |      | |");
+        System.out.println("|  |    | |     |   "+5+"  |     |      | |");
+        System.out.println("|__|____|_|_____|______|_____|______|_|");
     }
-    public static void DesignElevHalfOpen() {
-        System.out.println("______________");
-        System.out.println("|    | |     |");
-        System.out.println("|    | |     |");
-        System.out.println("|    | |     |");
-        System.out.println("|____|_|_____|");
+
+    public static void LeftElevFullOpen()
+    {
+        System.out.println("|  ______________   "+5+"  ______________ |");
+        System.out.println("|  | |        | |   "+5+"  |     |      | |");
+        System.out.println("|  | |        | |   "+5+"  |     |      | |");
+        System.out.println("|  | |        | |   "+5+"  |     |      | |");
+        System.out.println("|__|_|________|_|______|_____|______|_|");
     }
-    public static void DesignElevFullOpen() {
-        System.out.println("______________");
-        System.out.println("| |        | |");
-        System.out.println("| |        | |");
-        System.out.println("| |        | |");
-        System.out.println("|_|________|_|");
+
+    public static void LeftElevOpening()
+    {
+        ElevIdle();
+        Delay(1000);
+        DeleteLine(5);
+
+        LeftElevHalfOpen();
+        Delay(1000);
+        DeleteLine(5);
+
+        LeftElevFullOpen();
+    }
+    public static void LeftElevClosing()
+    {
+        LeftElevFullOpen(); 
+        Delay(1000);
+        DeleteLine(5);
+
+        LeftElevHalfOpen();
+        Delay(1000);
+        DeleteLine(5);
+
+        ElevIdle();
     }
 
     public static void DeleteLine(int x) 

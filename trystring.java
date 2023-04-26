@@ -1,6 +1,6 @@
 public class trystring {
     public static void main(String[] args) {
-        int ElevatorCheck = 3;
+        int ElevatorCheck = 3 ;
         if (ElevatorCheck==1 || ElevatorCheck==3)
         {
             topdesign(3, 4);
