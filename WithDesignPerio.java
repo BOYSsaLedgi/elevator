@@ -276,7 +276,7 @@ public class WithDesignPerio {
             }
         
     }
-    
+
     public static int ElevatorCheck(int charlvl, int elev1, int elev2) //to check which elevator is nearest to you
     {
         int difference1 = charlvl-elev1; //how far elev1 from character
