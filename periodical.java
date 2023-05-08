@@ -23,6 +23,7 @@ public class periodical {
         //int elevator1 = 2;
         //int elevator2 = 3;
         topdesign(elevator1, elevator2);
+        
 
         int ElevatorLocation; //to get which elevator is nearest to you
         int character = 7; //variable for character location
